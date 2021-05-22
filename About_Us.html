@@ -4,9 +4,12 @@
         <title>About_Us</title>
         <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="About_Us-Style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
         <style>
 
         </style>
@@ -23,11 +26,19 @@
               <a class="navbar-brand" href="#">Ghar Khareedo</a>
             </div>
             <ul class="nav navbar-nav">
-              <li><a href="Indexhome.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li class="active"><a href="About_Us.html">About Us</a></li>
-              <li><a href="Our_Services.html">Our Services</a></li>
-              <li><a href="Customer_Feedback.html">Customer Feedback</a></li>
-              <li><a href="ContactTutorial.html">Contact Us</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Our Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="DropdownService1.html">Construction and Design</a>
+                  <a class="dropdown-item" href="DropdownService2.html">Real Estate Consultancy</a>
+                  <div class="dropdown-divider"></div>
+                </div>
+              </li>              <li><a href="Customer_Feedback.html">Customer Feedback</a></li>
+              <li><a href="Contact_Us.html">Contact Us</a></li>
             </ul>
             <form class="navbar-form navbar-left" action="/action_page.php">
               <div class="form-group">
@@ -38,32 +49,91 @@
           </div>
         </nav>
         <div class="container">
-            <br>
-            <p>WHO WE ARE</p>
-            <p>Design affects human. It changes the view of life and the self-image. According to the opinion specialists, a good design is a space that matches with the lifestyle, habits and nature of the person.</p>
-            <p>The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.</p>
-            <br>
-            <p>CORE VALUES
-                      <ul>
-                        <li>Professionalism</li>
-                        <li>Excellence</li>
-                        <li>Accountability</li>
-                        <li>Innovation</li>
-                        <li>Customer Satisfaction</li>
-                        <li>Integrity and Honesty</li>
-                        <li>Commitment</li>
-                        <li>Work Ethics</li>
-                      </ul>
-              </p>
-              <br>
-            <p>OUR TEAM
-              CEO's Message
-              <br>
-              Our Creative Minds 
+          <h2><solid>WHO WE ARE</solid></h2>
+          <p>Design affects human. It changes the view of life and the self-image. According to the opinion specialists, a good design is a space that matches with the lifestyle, habits and nature of the person. The stylish and organized interior represents the way to feel happy and complete. Design and comfort are primarily important for the success of a person’s life.</p>
+          <br>
+        <div>
+        <div class="container">
+          <h2><solid>OUR CORE VALUES</solid></h2>
+          <dl>
+            <h4><dt>Commitment</dt></h4>
+            <dd>We are dedicated to deliver objectives in an efficient and effective way</dd>
+            <h4><dt>Integrity</dt></h4>
+            <dd>We commit to conduct our business with integrity, honesty and responsiblity</dd>
+            <h4><dt>Strategy</dt></h4>
+            <dd>We use our ideas, resources and workforce to provide client-based solutions</dd>
+            <h4><dt>Excellence</dt></h4>
+            <dd>We believe in achieving high quality standards through latest techniques and methodologies</dd>
+            <h4><dt>Customer Satisfaction</dt></h4>
+            <dd>Customer Satisfaction is the top priority in all of our business operations and decisions</dd>
+            <h4><dt>Work Ethics</dt></h4>
+            <dd>Our work environment entails ethical standards of respect, integrity and accountability</dd>
+            <h4><dt>Innovation</dt></h4>
+            <dd>We make in-depth research for providing innovative and useful solutions to our customers</dd>
+          </dl>    
+        </div>
+        <div class="container">
+          <h2><solid>Our Leadership</solid></h2>
+          <p>Ghar Khareedo has established its position in the market under the leadership of our real estate expert, Mr Abdul Mughees and experienced construction contractor, Mr  Umair Qureshi.</p>
+          <p>They gathered a team of creative minds, architect designers, engineers and real-estate agents to achieve excellence and customer satisfaction.</p>
+        </div>    
+         <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3><span><img src="logo.png" alt="Ghar Khareedo Logo" style="width:215px;height:92px;object-fit:cover;object-position:50% 50%">          					 
+            </span></h3>
+            <p>
+              7451 Phase-1, Wapda Town,<br>
+              Multan, Pakistan<br>
+              <strong>Phone:</strong> +92 300 9163881<br>
+              <strong>Email:</strong> gharkhareedo@gmail.com<br>
             </p>
-            
-
-
           </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="About_Us.html">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Our_Services.html">Our Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Customer_Feedback.html">Customer Feedback</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Contact_Us.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Construction and Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Real Estate Consultancy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <div class="social-links mt-3">
+              <a href="https://www.facebook.com/ApnaGharKhareedo" class="facebook"><i class="fa fa-facebook"></i>
+              <a href="https://www.instagram.com/gharkhareedo/" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Ghar Khareedo</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+     
     </body>
 </html>
