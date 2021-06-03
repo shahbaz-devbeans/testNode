@@ -34,15 +34,15 @@ onload = () => {
   formContact.onsubmit = async (e) => {
     e.preventDefault();
 
-    // if (isFormValid()) { 
-    //   let response = await fetch("http://localhost:3000/", {
-    //     method: "POST",
-    //     body: new FormData(formElem),
-    //   });
+     if (isFormValid()) { 
+      let response = await fetch("http://localhost:3000/contactus", {
+         method: "POST",
+         body: new FormData(formContact),
+       });
 
-    //   let result = await response.json();
+       let result = await response.json();
 
       new FormData(formContact).forEach(e => console.log(e));
     }
   };
-// };
+ };
