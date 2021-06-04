@@ -34,15 +34,18 @@ onload = () => {
   formContact.onsubmit = async (e) => {
     e.preventDefault();
 
-     if (isFormValid()) { 
-      let response = await fetch("http://localhost:3000/contactus", {
-         method: "POST",
-         body: new FormData(formContact),
-       });
+    if (isFormValid()) {
+      let response = await fetch("http://localhost:3000/api/contactus", {
+        method: "POST",
+        body: new FormData(formContact),
+      });
 
-       let result = await response.json();
+      let result = await response.json();
 
-      new FormData(formContact).forEach(e => console.log(e));
+      if (response.status == 201) {
+        // display to the user that form was submitted successfully
+        console.log("form submitted success");
+      }
     }
   };
- };
+};
