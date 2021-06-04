@@ -35,12 +35,15 @@ onload = () => {
     e.preventDefault();
 
     if (isFormValid()) {
+      // This is essentially getting all the form data and making like and object
+      // such as:
+      // {name: "ygor", email: "myemail.com"} and so on
+      const formData = new URLSearchParams(new FormData(formContact));
+
       let response = await fetch("http://localhost:3000/api/contactus", {
         method: "POST",
-        body: new FormData(formContact),
+        body: formData,
       });
-
-      let result = await response.json();
 
       if (response.status == 201) {
         // display to the user that form was submitted successfully
