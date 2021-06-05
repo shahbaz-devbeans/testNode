@@ -1,41 +1,41 @@
 const express = require("express");
-const PORT = 3000;
-const app = express();
+const path = require("path");
+const MongoClient = require("mongodb").MongoClient;
 
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded({ extended: true }));
+const PORT = 3000;
+const URL_MONGODB = "mongodb://localhost:27017";
+const app = express();
+const DB_NAME = "hira_website";
+const COLLECTIONS_NAMES = {
+  contactUsForm: "contact_us_forms",
+  customerFeedbackForm: "fb_forms",
+};
+
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.json()); // To parse the incoming requests with JSON payloads
+app.use(express.static(path.join(__dirname, "client"))); // using static files
 
 // Access the parse results as request.body
-app.post("/", function(req, res) {
-  console.log(req.body.name);
-  console.log(request.body.email);
-  console.log(request.body.number);
-  console.log(request.body.message);
+app.post("/api/contactus", (req, res) => {
+  try {
+    MongoClient.connect(URL_MONGODB, async (err, client) => {
+      const db = client.db(DB_NAME);
+      const collection = db.collection(COLLECTIONS_NAMES.contactUsForm);
 
+      const result = await collection.insertOne(req.body);
+      console.log(
+        `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
+      );
+      res.send().status(201);
+    });
+  } catch (error) {
+    const error_msg = `Error inserting form data into collection`;
+    console.log(error_msg);
+    res.send(error_msg).status(500);
+  }
 });
 
+// this has to be always the last line of code
 app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`);
-})
-
-//Serving Static files 
-app.get("/", (req, res) => {
-  const homePage = [
-    { name: "Logo", image: "logo.png" },
-    { name: "Minimalistic", image: "Minimalistic.jpg" },
-    { name: "3D", image: "Interior.jpg" },
-    { name: "Interior", image: "Interior.jpg" },
-    { name: "Where to invest", image: "Where to invest.jpg" },
-    { name: "New Schemes", image: "Schemes.jpg" },
-    { name: "Luxury", image: "Luxury.jpg" },
-  ];
-
-  res.render("index", { homePage: images });
+  console.log(`Server running on: http://localhost:${PORT}`);
 });
-
-//Rendering Static Files using Express
-app.use(express.static('images'))
-app.use(express.static('styles'))
-app.use(express.static('views'))
-

@@ -34,15 +34,21 @@ onload = () => {
   formContact.onsubmit = async (e) => {
     e.preventDefault();
 
-     if (isFormValid()) { 
-      let response = await fetch("http://localhost:3000/contactus", {
-         method: "POST",
-         body: new FormData(formContact),
-       });
+    if (isFormValid()) {
+      // This is essentially getting all the form data and making like and object
+      // such as:
+      // {name: "ygor", email: "myemail.com"} and so on
+      const formData = new URLSearchParams(new FormData(formContact));
 
-       let result = await response.json();
+      let response = await fetch("http://localhost:3000/api/contactus", {
+        method: "POST",
+        body: formData,
+      });
 
-      new FormData(formContact).forEach(e => console.log(e));
+      if (response.status == 201) {
+        // display to the user that form was submitted successfully
+        console.log("form submitted success");
+      }
     }
   };
- };
+};
