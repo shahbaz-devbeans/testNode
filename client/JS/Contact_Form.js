@@ -40,7 +40,7 @@ onload = () => {
       // {name: "ygor", email: "myemail.com"} and so on
       const formData = new URLSearchParams(new FormData(formContact));
 
-      let response = await fetch("http://localhost:3000/api/contactus", {
+      let response = await fetch("http://localhost:3001/api/contactus", {
         method: "POST",
         body: formData,
       });

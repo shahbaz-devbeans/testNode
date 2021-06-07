@@ -1,8 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
 
-const PORT = 3000;
+const PORT = 3001;
 const URL_MONGODB = "mongodb://localhost:27017";
 const app = express();
 const DB_NAME = "hira_website";
@@ -10,6 +11,7 @@ const COLLECTIONS_NAMES = {
   contactUsForm: "contact_us_forms",
   customerFeedbackForm: "fb_forms",
 };
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.json()); // To parse the incoming requests with JSON payloads
