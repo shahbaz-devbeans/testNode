@@ -28,7 +28,28 @@ app.post("/api/contactus", (req, res) => {
       console.log(
         `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
       );
-      res.send().status(201);
+      res.json({"message":"done success"}).status(201);
+    });
+  } catch (error) {
+    const error_msg = `Error inserting form data into collection`;
+    console.log(error_msg);
+    res.send(error_msg).status(500);
+  }
+});
+
+app.post("/api/CustomerFeedback", (req, res) => {
+  try {
+    console.log("here", req.body)
+
+    MongoClient.connect(URL_MONGODB, async (err, client) => {
+      const db = client.db(DB_NAME);
+      const collection = db.collection(COLLECTIONS_NAMES.customerFeedbackForm);
+
+      const result = await collection.insertOne(req.body);
+      console.log(
+        `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
+      );
+      res.json({"message":"done success"}).status(201);
     });
   } catch (error) {
     const error_msg = `Error inserting form data into collection`;

@@ -45,9 +45,14 @@ onload = () => {
         body: formData,
       });
 
-      if (response.status == 201) {
+      if (response.status == 200) {
         // display to the user that form was submitted successfully
-        console.log("form submitted success");
+        console.log("form submitted success", response);
+        yourName.value = "";
+        yourEmail.value = "";
+        phoneNumber.value = "";
+        message.value = ""; 
+
       }
     }
   };
