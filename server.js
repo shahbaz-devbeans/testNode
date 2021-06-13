@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies (as
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 app.use(express.static(path.join(__dirname, "client"))); // using static files
 
+
 // Access the parse results as request.body
 app.post("/api/contactus", (req, res) => {
   try {
