@@ -39,14 +39,16 @@ app.post("/api/contactus", (req, res) => {
 
 app.get("/api/CustomerFeedback", (req, res) => {
   try {
-    res
-      .json([
-        { name: "shahbaz", message: "Here is my message shahbaz" },
-        { name: "noman", message: "Here is my message noman" },
-        { name: "aleem", message: "Here is my message aleem" },
-        { name: "zubair", message: "Here is my message zubair" },
-      ])
-      .status(201);
+    MongoClient.connect(URL_MONGODB, async (err, client) => {
+      const db = client.db(DB_NAME);
+      const collection = db.collection(COLLECTIONS_NAMES.customerFeedbackForm);
+
+      const result = await collection.find().sort({ _id: 1 }).limit(4);
+      console.log(
+        `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`
+      );
+      res.json(result).status(201);
+    });
   } catch (error) {
     const error_msg = `Error getting data from collection`;
     console.log(error_msg);
